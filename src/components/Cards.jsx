@@ -1,7 +1,6 @@
 import React from "react";
 
 const MovieCard = ({ movie, onClick }) => {
-  console.log("movie", movie);
   return (
     <div
       onClick={() => onClick(movie)}

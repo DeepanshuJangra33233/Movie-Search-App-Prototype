@@ -1,5 +1,5 @@
+// Importing required modules and components
 import "./App.css";
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MovieCard from "./components/Cards";
@@ -7,21 +7,24 @@ import MovieModal from "./components/Modal";
 import NavBar from "./components/common/NavBar";
 
 const App = () => {
+  // State variables
   const [movies, setMovies] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedMovie, setSelectedMovie] = useState(null);
 
-  const API_KEY = "5513295d";
+  // API key for OMDB API, fetched from environment variables
+  const API_KEY = process.env.REACT_APP_OMDB_API_KEY;
 
-  // Fetch popular movies (default view)
+  // Fetch popular movies when the component mounts
   useEffect(() => {
     fetchMovies("popular");
   }, []);
 
+  // Function to fetch movies based on a query
   const fetchMovies = async (query) => {
     const endpoint =
       query === "popular"
-        ? `https://www.omdbapi.com/?s=batman&apikey=${API_KEY}` // Replace with a popular movies query
+        ? `https://www.omdbapi.com/?s=batman&apikey=${API_KEY}`
         : `https://www.omdbapi.com/?s=${query}&apikey=${API_KEY}`;
 
     try {
@@ -32,10 +35,12 @@ const App = () => {
     }
   };
 
+  // Function to handle search button click
   const handleSearch = () => {
     if (searchQuery.trim()) fetchMovies(searchQuery);
   };
 
+  // Function to fetch detailed information for a specific movie
   const fetchMovieDetails = async (id) => {
     try {
       const response = await axios.get(
@@ -49,13 +54,15 @@ const App = () => {
 
   return (
     <div className="pb-5">
+      {/* Navbar component for the search functionality */}
       <NavBar
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
         handleSearch={handleSearch}
       />
 
-      <div className="movie-list max-w-[1440px] mx-auto px-3">
+      {/* Movie list section */}
+      <div className="movie-list grid gap-5 max-w-[1440px] mx-auto px-3">
         {movies.map((movie) => (
           <MovieCard
             key={movie.imdbID}
@@ -64,6 +71,8 @@ const App = () => {
           />
         ))}
       </div>
+
+      {/* Modal to display selected movie details */}
       <MovieModal
         movie={selectedMovie}
         onClose={() => setSelectedMovie(null)}

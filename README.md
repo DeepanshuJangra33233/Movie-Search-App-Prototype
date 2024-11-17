@@ -1,70 +1,138 @@
-# Getting Started with Create React App
+# 🎥 Movie Search App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple React.js application that allows users to search for movies and view detailed information. It uses the OMDB API to fetch movie data and provides an intuitive, responsive user interface.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+- **Search Movies**: Users can search for movies by title using the OMDB API.
+- **Popular Movies**: Displays a list of popular movies by default.
+- **Movie Details**: A modal shows detailed information about a selected movie, including:
+  - Plot summary
+  - Genre
+  - IMDb rating
+- **Responsive Design**: Fully responsive and works on all screen sizes.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Getting Started
 
-### `npm test`
+Follow these steps to set up and run the project locally.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+- **Node.js**: [Download and install](https://nodejs.org/).
+- **Git**: [Download and install](https://git-scm.com/).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Clone the Repository**:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   git clone https://github.com/DeepanshuJangra33233/Movie-Search-App-Prototype.git
+   cd movie-search-app
+   ```
 
-### `npm run eject`
+2. **Install Dependencies**:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   npm install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. **Set Up Environment Variables**:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   - Obtain an API key from the [OMDB API website](http://www.omdbapi.com/).
+   - Create a `.env` file in the root directory and add the following:
+     ```env
+     REACT_APP_OMDB_API_KEY=your_api_key_here
+     ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. **Run the Application**:
+   ```bash
+   npm start
+   ```
+   The app will run at [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🧪 How to Use
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **Default View**:
 
-### Code Splitting
+   - The homepage displays a list of popular movies (default query: "Batman").
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. **Search Movies**:
 
-### Analyzing the Bundle Size
+   - Enter a movie title in the search bar and click the "Search" button.
+   - The app will display the search results.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+3. **View Details**:
+   - Click on a movie from the list to view additional details in a modal.
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📂 Project Structure
 
-### Advanced Configuration
+```
+src/
+├── components/
+│   ├── MovieCard.js       # Displays individual movie info
+│   ├── MovieModal.js      # Modal for showing movie details
+│   ├── SearchBar.js       # Search bar component
+├── App.js                 # Main app logic
+├── index.js               # Entry point
+├── styles.css             # App styles
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 🌟 Features in Development
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **Improved Popular Movies Query**: Replace the default "Batman" query with a trending movies API.
+- **Advanced State Management**: Integrate Redux or Zustand for scalable state handling.
+- **Pagination**: Add pagination for search results.
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🖥️ Testing the Application
+
+1. **Run Locally**: Start the app and test functionality (search, modal, responsiveness).
+2. **API Testing**: Use [Postman](https://www.postman.com/) to verify OMDB API responses.
+3. **Responsive Design**: Resize your browser or test on mobile devices.
+
+---
+
+## 🛡️ Notes
+
+- Ensure the API key is properly configured in the `.env` file. The app will not work without it.
+- If facing API limits, consider upgrading your OMDB API plan.
+
+---
+
+## 🌐 Deployment
+
+1. **Build the App**:
+   ```bash
+   npm run build
+   ```
+2. **Deploy**:
+   - Use platforms like [Vercel](https://vercel.com/) or [Netlify](https://www.netlify.com/) to host the app.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request to contribute.
+
+---
+
+## 📧 Contact
+
+For questions or support, please contact:
+
+- **Name**: Deepanshu Jangra
+- **Email**: DeepanshuJangra33233@gmail.com
+- **GitHub**: https://github.com/DeepanshuJangra33233/Movie-Search-App-Prototype.git
+
+---
